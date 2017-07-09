@@ -111,7 +111,7 @@ if (optionsinit.mapoptions[2]){
   },
   writeHTML: function(options){
     console.log('write html');
-     var compiledFunction = pug.compileFile(__dirname+'export/test.pug');
+     var compiledFunction = pug.compileFile(__dirname+'/export/test.pug');
      fs.writeFileSync(pathMain+'/map.html', compiledFunction(options) );//uncommented
      console.log('wrote html!');
   },
@@ -120,7 +120,7 @@ if (optionsinit.mapoptions[2]){
     if(options.projectdest){
       pathMain = options.projectdest+'/'+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
     }else{
-      pathMain = __dirname+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
+      pathMain = __dirname+'/'+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
     }
     console.log(pathMain);
     this.createMapDir(options);
