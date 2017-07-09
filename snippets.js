@@ -98,12 +98,12 @@ if (optionsinit.mapoptions[2]){
   createMapDir: function(options){
 
     fs.ensureDirSync(pathMain);
-    fs.copySync('./export/js', pathMain);//copies leaflet
+    fs.copySync(__dirname+'/export/js', pathMain);//copies leaflet
     for(i in options.plugins){
         switch (options.plugins[i][0])
         {
           case 'leaflet.markercluster':
-            fs.copySync('./export/markercluster', pathMain);//copies markercluster into designated folder
+            fs.copySync(__dirname+'/export/markercluster', pathMain);//copies markercluster into designated folder
             break;
           default:
           console.log('default');
@@ -111,7 +111,7 @@ if (optionsinit.mapoptions[2]){
   },
   writeHTML: function(options){
     console.log('write html');
-     var compiledFunction = pug.compileFile('./export/test.pug');
+     var compiledFunction = pug.compileFile(__dirname+'export/test.pug');
      fs.writeFileSync(pathMain+'/map.html', compiledFunction(options) );//uncommented
      console.log('wrote html!');
   },
@@ -120,9 +120,9 @@ if (optionsinit.mapoptions[2]){
     if(options.projectdest){
       pathMain = options.projectdest+'/'+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
     }else{
-      pathMain = './'+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
+      pathMain = __dirname+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
     }
-
+    console.log(pathMain);
     this.createMapDir(options);
     this.writeHTML(options);
     this.writeScript(options);
