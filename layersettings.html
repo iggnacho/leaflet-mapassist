@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title >Settings for Layer</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="photon-0.1.2-dist/css/photon.min.css">
+    <!-- Javascript -->
+
+  </head>
+  <body>
+    <div class="window">
+
+      <!-- .toolbar-header sits at the top of your app -->
+      <!-- <header class="toolbar toolbar-header">
+        <h1 class="title">Test</h1>
+      </header> -->
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane">
+<div class="padded-more">
+        <form id="formsetting">
+          <!-- <div class="form-group">
+            <label>Provider Name (case sensitive)</label>
+            <input type="name" id="providername"class="form-control" placeholder="ie. 'Stamen.Watercolor'">
+            <a href="#" id="aproviderlink">Check all provider names</a>
+          </div>
+          <div class="form-group">
+            <label>Max Zoom (20 is max)</label>
+            <input type="number" id="maxzooominput" class="form-control" placeholder="Default : 19">
+          </div>
+          <div class="form-group">
+            <label>Min Zoom (0 is min)</label>
+            <input type="number" class="form-control" id="minzoominput" placeholder="Default : 0">
+          </div> -->
+<h4 id="title">title</h4>
+          <div class="form-group">
+
+            <label>Tooltip Content</label>
+            <textarea id="tooltipform" class="form-control" rows="1" placeholder="tooltip content"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Pop Up Content</label>
+            <textarea id="popupform" class="form-control" rows="3" placeholder="popup content"></textarea>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" id="mcbox"> Cluster Markers (Markers Only)
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-form btn-primary">Update Layer</button>
+            <button id="closebutton" class="btn btn-form btn-negative">Close</button>
+          </div>
+        </form>
+        </div>
+        </div>
+        </div>
+      </div>
+  <script src="runLayer.js" charset="utf-8"></script>
+  </body>
+</html>

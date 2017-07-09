@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leaflet - Map Assist</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="photon-0.1.2-dist/css/photon.min.css">
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="node_modules/leaflet-geosearch/assets/css/leaflet.css">
+    <!-- <link rel="stylesheet" href="node_modules/leaflet.markercluster/dist/MarkerCluster.css"> -->
+    <!-- <link rel="stylesheet" href="node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css"> -->
+    <!-- Javascript -->
+
+  </head>
+  <body>
+    <div class="window">
+
+      <!-- .toolbar-header sits at the top of your app -->
+      <!-- <header class="toolbar toolbar-header">
+        <h1 class="title">Test</h1>
+      </header> -->
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane-sm sidebar">
+          <spanclass="nav-group">
+          <center>
+          <div class="btn-group">
+            <button class="btn btn-default" id="addData-button"title="Add Data">
+              <span class="icon icon-list-add"></span>
+            </button>
+            <button class="btn btn-default" id="mapSettings-button" title="Map Settings">
+              <span class="icon icon-globe"></span>
+            </button>
+            <button class="btn btn-default" id="mapExport-button"title="Export Map">
+              <span class="icon icon-export"></span>
+            </button>
+            <button class="btn btn-default" id="mapInfo-button"title="Project Info">
+              <span class="icon icon-info"></span>
+            </button>
+          </div>
+        </center>
+          </span>
+            <nav class="nav-group" id='listgroup'>
+              <h1 class="nav-group-title">LAYER LIST
+                <button class="btn btn-default"  style="float:right;" id="Data-Menu" title="Data Menu">
+                  <span class="icon icon-menu"></span>
+                </button>
+              </h1>
+              <!-- <span class="nav-group-item">
+                 <input type="checkbox">
+                  name_for_layer
+                <span class="icon icon-cog"></span>
+              </span>
+              <span class="nav-group-item active">
+                <span class="icon icon-light-up"></span>
+                Photon
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-download"></span>
+                Downloads
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-folder"></span>
+                Documents
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-window"></span>
+                Applications
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-signal"></span>
+                AirDrop
+              </span>
+              <span class="nav-group-item">
+                <span class="icon icon-monitor"></span>
+                Desktop -->
+              </span>
+            </nav>
+
+          </div>
+           <div class="pane" id="map"></div>
+        </div>
+      </div>
+      <script src="mapapp.js" charset="utf-8"></script>
+  </body>
+</html>

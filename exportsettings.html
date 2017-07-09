@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title >Settings for Export</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="photon-0.1.2-dist/css/photon.min.css">
+    <!-- Javascript -->
+
+  </head>
+  <body>
+    <div class="window">
+
+      <!-- .toolbar-header sits at the top of your app -->
+      <!-- <header class="toolbar toolbar-header">
+        <h1 class="title">Test</h1>
+      </header> -->
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane">
+        <div class="padded-more">
+        <form id="formsetting">
+          <div class="form-group">
+            <label>Map Title</label>
+            <textarea id="choose-name" class="form-control" rows="1" placeholder="Leave blank if no title desired."></textarea>
+          </div>
+          <div class="form-group">
+            <label>If you do not choose a folder it will save where Leaflet Map Assist resides.</label>
+            <label><button id="choose-directory" class="btn btn-form btn-primary">Choose Export Folder</button></label>
+            <label id="pathofDt"></label>
+          </div>
+          <div class="form-group">
+            <label>Export uses current map extent and zoom level.</label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-form btn-primary">Start Export</button>
+            <button id="closeform" class="btn btn-form btn-negative">Cancel</button>
+          </div>
+        </form>
+        </div>
+        </div>
+        </div>
+      </div>
+  <script src="PreExport.js" charset="utf-8"></script>
+  </body>
+</html>

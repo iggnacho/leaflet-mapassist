@@ -1,0 +1,24 @@
+head
+  title #{title}
+  link( rel='stylesheet' href='leaflet.css' )
+  each val in plugins
+    if val[1] = 'true'
+      if val[0] = 'leaflet.markercluster'
+        link( rel='stylesheet' href='MarkerCluster.css' )
+        link( rel='stylesheet' href='MarkerCluster.Default.css' )
+      else
+        link( rel='stylesheet' href= val[0]+'.css' )
+  if maptitle != null
+    style(type='text/css').
+      .info {
+          padding: 6px 8px;
+          font: 18px/20px Arial, Helvetica, sans-serif;
+          background: white;
+          background: rgba(255,255,255,0.8);
+          box-shadow: 0 0 15px rgba(0,0,0,0.2);
+          border-radius: 5px;
+      }
+      .info h3 {
+          margin: 0 0 5px;
+          color: #777;
+      }

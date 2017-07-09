@@ -1,0 +1,9 @@
+script( src='leaflet.js' )
+each val in plugins
+  script( src= val[0]+'.js' )
+each val in datanames
+  if val == null
+  else
+    script( src=val[0]+'.js')
+
+script( src="map.js")
