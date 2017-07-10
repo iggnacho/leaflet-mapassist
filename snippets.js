@@ -117,11 +117,7 @@ if (optionsinit.mapoptions[2]){
   },
   writeMap: function(options){
     console.log(options)
-    if(options.projectdest){
-      pathMain = options.projectdest+'/'+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
-    }else{
-      pathMain = __dirname+'/'+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
-    }
+    pathMain = options.projectdest+'/'+options.projectname+ moment().format("YYYY_M_D_h_mm_ss");
     console.log(pathMain);
     this.createMapDir(options);
     this.writeHTML(options);

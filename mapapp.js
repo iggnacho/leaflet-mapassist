@@ -1,7 +1,7 @@
 window.$ = require('jquery');
 var L = require('leaflet');
 require('leaflet.markercluster');
-var remote = require('electron').remote;
+const remote = require('electron').remote;
 const {
   dialog,
   BrowserWindow,
@@ -44,6 +44,7 @@ var exportoptions = {
   "projectname": "MA_Project_",//name of folder
   "projectdest":undefined
 };
+
 //checkDataPlug('markercluster', message.id)
 function checkDataPlug(pluginname, mastID){
 	if(exportoptions.datanames.length > 0){
@@ -110,6 +111,7 @@ async function runWriteProcess() {
     exportoptions.mapoptions[0]=basemapProviderLayer;
     exportoptions.mapoptions[4] =  mymap.getZoom();
   exportoptions.mapoptions[5] = mymap.getCenter();
+  if (!exportoptions.projectdest) exportoptions.projectdest= desktopPath;
   let testpath2 = snippets.writeMap(exportoptions);
   await writeDataSets(testpath2);
 }catch(err){
@@ -551,9 +553,11 @@ const fs = require('fs');
 
 const parseMe = require('./GeoParse.js');
 const snippets = require('./snippets.js');
-var supercluster , rbush, choropleth;
-
-
+var supercluster , rbush, choropleth, desktopPath;
+ipcRenderer.send('needDesktop', 'run');
+ipcRenderer.on('desktopPath', (event, message) => {
+  desktopPath = message;//necessary because otherwise on blank other stuff is written to root which means that it writes inside content folder in MacOS - easier if desktop is set
+});
 $(document).ready(function() {
   mymap.invalidateSize();
   $('#addData-button').click(function(e) {

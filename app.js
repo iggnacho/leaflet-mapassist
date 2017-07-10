@@ -12,6 +12,11 @@ let mainWindow
 //   event.sender.send('asynchronous-reply', 'pong')
 // })
 
+const desktopPath = app.getPath('desktop');
+ipcMain.on('needDesktop', (event, arg) => {
+  mainWindow.webContents.send('desktopPath', desktopPath);
+})
+
 ipcMain.on('synchronous-message', (event, arg) => {
   if(arg.id){
     mainWindow.webContents.send('channel3', arg)//channel for layer edits
@@ -44,7 +49,6 @@ function createWindow () {
     app.quit()
 
   })
-
 
 }
 
