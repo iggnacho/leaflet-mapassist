@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . --overwrite --asar --icon=icon2.ico --prune"
+    "package-mac": "electron-packager . --overwrite --icon=icon2.icns --prune=true",
+    "package-win": "electron-packager . --overwrite --asar=true --icon=icon2.ico --prune=true"
   },
   "author": "",
   "license": "ISC",
