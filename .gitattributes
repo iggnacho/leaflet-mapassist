@@ -1,2 +1,2 @@
-$ cat .gitattributes
-*.rb linguist-language=JavaScript
+export
+photon-0.1.2-dist
