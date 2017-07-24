@@ -9,7 +9,7 @@
     "package-win": "electron-packager . --overwrite --asar=true --icon=icon2.ico --prune=true"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@mapbox/leaflet-omnivore": "^0.3.4",
     "csv-parse": "^1.2.0",
