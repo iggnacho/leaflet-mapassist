@@ -1,6 +1,6 @@
 {
   "name": "leaflet-Map-Assist",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Assist in templating leaflet maps.",
   "main": "app.js",
   "scripts": {
@@ -11,7 +11,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@mapbox/togeojson": "^0.16.0",
     "csv-parse": "^1.2.0",
     "fs-extra": "^3.0.1",
     "jquery": "^3.2.1",
@@ -22,7 +21,8 @@
     "leaflet.markercluster": "^1.0.5",
     "moment": "^2.18.1",
     "prettier": "^1.5.3",
-    "pug": "^2.0.0-rc.2"
+    "pug": "^2.0.0-rc.2",
+    "togeojson": "^0.16.0"
   },
   "devDependencies": {
     "electron": "^1.6.11",
