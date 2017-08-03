@@ -4,10 +4,10 @@ Templating Leaflet Maps with UI
 
 Pre-packaged links:
 
-Mac
+Windows
 https://drive.google.com/open?id=0ByQKUaN2E6C8ZkoyX2thV29sYWM
 
-windows
+Mac
 https://drive.google.com/open?id=0ByQKUaN2E6C8WFFSbWl4MVpJLWM
 
 
