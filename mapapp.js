@@ -112,8 +112,32 @@ async function runWriteProcess() {
     exportoptions.mapoptions[4] =  mymap.getZoom();
   exportoptions.mapoptions[5] = mymap.getCenter();
   if (!exportoptions.projectdest) exportoptions.projectdest= desktopPath;
-  let testpath2 = snippets.writeMap(exportoptions);
-  await writeDataSets(testpath2);
+  let testpath2 = snippets.writeMap(exportoptions);//IN
+  /*
+  let winTest = new BrowserWindow({
+    show:false,
+    webPreferences: {
+    nodeIntegrationInWorker: true
+  }
+});
+
+winTest.loadURL(`file://${__dirname}/parserWorker.html`)
+winTest.once('ready-to-show', () => {
+  //winTest.hide()
+})
+winTest.webContents.on('did-finish-load', () => {
+  winTest.webContents.send('pinging', exportoptions.projectdest)
+  console.log('sending');
+})
+winTest.on('closed', function() {
+  console.log('closing');
+  winTest = null
+})
+
+*/
+
+await writeDataSets(testpath2);//IN
+exportoptions.maptitle = undefined;//reset the title...
 }catch(err){
   console.log(err);
   alert('error writing map, please check console')
@@ -420,7 +444,6 @@ function nameCheck(nameofthis) {
   }
 
 function removeName(nameofthis){
-  nameofthis
   for (let i in exportoptions.datanames)
   {
     if (nameofthis === exportoptions.datanames[i][0])
@@ -428,6 +451,8 @@ function removeName(nameofthis){
 
   }
       console.log(exportoptions.datanames)
+      console.log(exportoptions.plugins)// I NEED TO REMOVE THE PLUGIN WHEN THE LAST DATASET USING PLUGIN IS DELETED
+
 };
 async function readFile(filesSelected) {
 try{
@@ -621,10 +646,11 @@ $(document).ready(function() {
 
 
   $("#mapExport-button").click(function(e) {
+
     let child5 = new BrowserWindow({
       width: 500,
       height: 350,
-      modal: true,
+      // modal: true,
       show: true
     })
     child5.loadURL(`file://${__dirname}/exportsettings.html`)
@@ -636,6 +662,7 @@ $(document).ready(function() {
       // in an array if your app supports multi windows, this is the time
       // when you should delete the corresponding element.
       child5 = null
+      console.log('closing child5 win')
     })
     child5.webContents.on('crashed', event => {
       // for (var k in event) {
@@ -650,11 +677,15 @@ $(document).ready(function() {
       // }
       Console.error(`Window "${this.name}" crashed: ${event}`);
     });
+    //
+    //check if there is already a channel5?
+    if(!ipcRenderer._events.channel5){
     ipcRenderer.on('channel5', (event, message) => {
         if (message.mapdest) exportoptions.projectdest = message.mapdest;
         if(message.maptitle) exportoptions.maptitle = message.maptitle;
         runWriteProcess();
     });
+  }
 
   });
   $("#mapInfo-button").click(function(e) {

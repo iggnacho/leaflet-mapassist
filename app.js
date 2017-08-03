@@ -29,7 +29,9 @@ ipcMain.on('synchronous-message', (event, arg) => {
   }
 
 })
-
+ipcMain.on('message_workers', (event, arg) => {
+    console.log('worker reporting', arg);
+})
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600})

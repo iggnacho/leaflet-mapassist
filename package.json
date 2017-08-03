@@ -11,10 +11,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@mapbox/leaflet-omnivore": "^0.3.4",
+    "@mapbox/togeojson": "^0.16.0",
     "csv-parse": "^1.2.0",
     "fs-extra": "^3.0.1",
-    "geojson-rbush": "^1.1.0",
     "jquery": "^3.2.1",
     "jsonfile": "^3.0.0",
     "leaflet": "^1.0.3",
@@ -22,10 +21,8 @@
     "leaflet-providers": "^1.1.16",
     "leaflet.markercluster": "^1.0.5",
     "moment": "^2.18.1",
-    "pug": "^2.0.0-rc.2",
-    "rbush": "^2.0.1",
-    "supercluster": "^2.3.0",
-    "uglify-js": "^3.0.15"
+    "prettier": "^1.5.3",
+    "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "electron": "^1.6.11",
