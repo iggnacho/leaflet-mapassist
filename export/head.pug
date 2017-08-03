@@ -1,5 +1,6 @@
 head
-  title #{title}
+  meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+  title Web Map
   link( rel='stylesheet' href='leaflet.css' )
   each val in plugins
     if val[1] = 'true'
@@ -21,4 +22,22 @@ head
       .info h3 {
           margin: 0 0 5px;
           color: #777;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      html, body, #map {
+        height: 100vh;
+        width: 100vw;
+      }
+  else
+    style(type='text/css').
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      html, body, #map {
+        height: 100vh;
+        width: 100vw;
       }
