@@ -41,15 +41,23 @@ Once building is completed, you should have a new folder with the Electron Appli
 
 ## Using the Application
 
-Once application is ran you should be presented with the following UI:
+Once application is running you should be presented with the following UI:
 
 <img src="https://user-images.githubusercontent.com/13355797/30506363-2813c5dc-9a30-11e7-9c11-9e1a528e94aa.png" height="400">
 
-More Coming soon...
+Maps can be designed with the given map and layer options:
 
-## Sharing
+<img src="https://user-images.githubusercontent.com/13355797/30506361-28134440-9a30-11e7-9268-8bb33fd4469c.png" height="400">
 
-You can host the given files into any webserver to share the maps.
+Furthermore, maps can be exported to the web assets to distribute/host yourself:
+
+<img src="https://user-images.githubusercontent.com/13355797/30506360-27fc0730-9a30-11e7-9e1b-0823f7d03a6e.png" height="200">
+
+This export should be visible in your browser:
+
+<img src="https://user-images.githubusercontent.com/13355797/30506362-28140178-9a30-11e7-9009-4580f442f934.png" height="400">
+
+For further instructions on the application check out the video: coming soon...
 
 ## Author and Info
 
