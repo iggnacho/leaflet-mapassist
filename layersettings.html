@@ -5,8 +5,14 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="photon-0.1.2-dist/css/photon.min.css">
+    <link rel="import" href="xel/xel.min.html">
+    <link rel="stylesheet" href="xel/stylesheets/material.theme.css">
     <!-- Javascript -->
-
+    <style>
+    .table-striped{
+      border: 1px solid gray;
+    }
+    </style>
   </head>
   <body>
     <div class="window">
@@ -23,37 +29,81 @@
 <div class="padded-more">
         <form id="formsetting">
           <!-- <div class="form-group">
-            <label>Provider Name (case sensitive)</label>
+            <span>Provider Name (case sensitive)</span>
             <input type="name" id="providername"class="form-control" placeholder="ie. 'Stamen.Watercolor'">
             <a href="#" id="aproviderlink">Check all provider names</a>
           </div>
           <div class="form-group">
-            <label>Max Zoom (20 is max)</label>
+            <span>Max Zoom (20 is max)</span>
             <input type="number" id="maxzooominput" class="form-control" placeholder="Default : 19">
           </div>
           <div class="form-group">
-            <label>Min Zoom (0 is min)</label>
+            <span>Min Zoom (0 is min)</span>
             <input type="number" class="form-control" id="minzoominput" placeholder="Default : 0">
           </div> -->
 <h4 id="title">title</h4>
+
+<div class="form-group">
+  <span>Style(Fill = Polygons Only)</span><br>
+  <x-box class="form-control">
+  <x-colorselect id="colorbox"style=" float: left;" ></x-colorselect>
+  <span>Click to select color and then use update buttons below</span>
+  </x-box>
+  <table class="table-striped">
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Color</th>
+        <th>Opacity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fill</td>
+        <td><input id="fillcolor" class="form-control" rows="1" placeholder="Hex"></input></input></td>
+        <td><input id="fillopacity" class="form-control" rows="1" placeholder="0-1"></input></td>
+      </tr>
+      <tr>
+        <td>Stroke</td>
+        <td><input id="outlinefill" class="form-control" rows="1" placeholder="Hex"></input></input></td>
+        <td><input id="outlineopacity" class="form-control" rows="1" placeholder="0-1"></input></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="test">
+    <button class="btn btn-form btn-primary"id="fillbutton">Fill Color</button>
+    <button class="btn btn-form btn-primary"id="outlinebutton">Stroke Color</button>
+  </div>
+
+</div>
           <div class="form-group">
 
-            <label>Tooltip Content</label>
+            <span>Tooltip Content(No Markers)</span>
             <textarea id="tooltipform" class="form-control" rows="1" placeholder="tooltip content"></textarea>
           </div>
           <div class="form-group">
-            <label>Pop Up Content</label>
+            <span>Popup Content</span>
             <textarea id="popupform" class="form-control" rows="3" placeholder="popup content"></textarea>
           </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" id="mcbox"> Cluster Markers (Markers Only)
-            </label>
+          <div class="form-group">
+            <span>Plugins</span>
+            <!-- <div class="checkbox">
+              <label>
+                <input type="checkbox" id="mcbox"> Cluster Markers (Markers Only)
+              </label>
+            </div> -->
+            <x-box>
+  <x-radio toggled mixed id="mclusterRadio"></x-radio>
+  <x-label for="mclusterRadio" id="label-1">Cluster Markers (Markers Only)</x-label>
+</x-box>
           </div>
+
           <div class="form-actions">
             <button type="submit" class="btn btn-form btn-primary">Update Layer</button>
             <button id="closebutton" class="btn btn-form btn-negative">Close</button>
           </div>
+
         </form>
         </div>
         </div>

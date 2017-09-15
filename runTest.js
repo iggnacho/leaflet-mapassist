@@ -40,7 +40,7 @@ if ((zoomminchange.value.trim()).length > 0 && parseInt(zoomminchange.value.trim
 if ((zoommaxchange.value.trim()).length > 0 && parseInt(zoommaxchange.value.trim())<=20){send = true;console.log('change max'); settingObject.zoommax = zoommaxchange.value.trim()}
 if (mapextentchange.checked){console.log('change extent'); settingObject.mapextent = true;send = true; }
 
-if (send) ipcRenderer.send('synchronous-message', settingObject);
+if (send) ipcRenderer.send('map-message', settingObject);
   window1.close();
 });
 closebutton.addEventListener("click", function(event){

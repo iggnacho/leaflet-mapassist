@@ -35,7 +35,7 @@ var settingObject = {
   if ((delimchange.value.trim()).length > 0){send = true; settingObject.delimiter = delimchange.value.trim()}
 
   console.log(settingObject);
-  if (send) settingObject.ready =true;ipcRenderer.send('synchronous-message', settingObject);
+  if (send) settingObject.ready =true;ipcRenderer.send('csv-message', settingObject);
   window1.close();
 });
 

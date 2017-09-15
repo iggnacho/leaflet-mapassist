@@ -83,31 +83,25 @@ body {
   <li class="list-group-item">
     <div class="media-body">
       <strong>Shapefiles</strong>
-      <p>Native JavaScript implementations for reading shapefiles are crap and work too slow. If you  have a shapefile within ArcMap or QGIS you can export the feature as a JSON to work with Leaflet Map Assist.</p>
+      <p>If you  have a shapefile within ArcMap or QGIS you can export the feature as a JSON to work with Leaflet Map Assist.</p>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <div class="media-body">
+      <strong>Geocoder</strong>
+      <p>Using free Geocoder plugin which uses Nomatim geocoder. Not to be relied upon for accuracy, but good for getting map to places of interest.</p>
     </div>
   </li>
   <li class="list-group-item">
     <div class="media-body">
       <strong>Data Size</strong>
-      <p>Without the use of a server, the resulting map and all the assets will be downloaded on the load of the site. Therefore pruning data and properties of data can benefit the map performance and load time. Also, loading super large datasets will crash the application and make it impossible to export. For large datasets a server is necessary.</p>
-    </div>
-  </li>
-  <li class="list-group-item">
-    <div class="media-body">
-      <strong>Layer Name Sensitivity</strong>
-      <p>Currently, adding layers with same name is not allowed.</p>
+      <p>Without the use of a server, the resulting map and all the assets will be downloaded on the loading of the site. Therefore pruning data and properties of data can benefit the map performance and load time. Also, loading super large datasets will crash the application.</p>
     </div>
   </li>
   <li class="list-group-item">
     <div class="media-body">
       <strong>Local File Loading</strong>
-      <p>Data parser is using a local file i/o to load the data, in the future we will allow for using links to load data from APIs with Fetch API.</p>
-    </div>
-  </li>
-  <li class="list-group-item">
-    <div class="media-body">
-      <strong>Styling layers</strong>
-      <p>The application is at early stages of development, but will be coming in later revisions.</p>
+      <p>Data parser is using a local file I/O to load the data.</p>
     </div>
   </li>
   <li class="list-group-item">
@@ -117,7 +111,7 @@ body {
     </div>
   </li>
 </ul>
- <a href="#" id="aproviderlink">Version 0.1 GitHub</a>
+ <a href="#" id="aproviderlink">Version 0.2 GitHub</a>
 <p>This project is a deliverable for CSULB MS project with the objective of assisting in writing assets for a static web maps. Thanks to authors of the libraries which I used in creating this application. <br>Author: Ignacio Carter Cuadra</p>
 </div>
 </div>

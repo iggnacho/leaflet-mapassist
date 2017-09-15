@@ -1,6 +1,6 @@
 {
   "name": "leaflet-Map-Assist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Assist in templating leaflet maps.",
   "main": "app.js",
   "scripts": {

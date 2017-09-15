@@ -2,13 +2,10 @@ head
   meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
   title Web Map
   link( rel='stylesheet' href='leaflet.css' )
-  each val in plugins
-    if val[1] = 'true'
-      if val[0] = 'leaflet.markercluster'
+  each val in datanames
+      if val[1] == 'leaflet.markercluster'
         link( rel='stylesheet' href='MarkerCluster.css' )
         link( rel='stylesheet' href='MarkerCluster.Default.css' )
-      else
-        link( rel='stylesheet' href= val[0]+'.css' )
   if maptitle != null
     style(type='text/css').
       .info {

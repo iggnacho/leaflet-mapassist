@@ -33,7 +33,7 @@ submitform.addEventListener("submit", function(event){
     event.preventDefault();
     if(chooseN.value)settings.maptitle = chooseN.value;
     console.log("submitted")
-    ipcRenderer.send('synchronous-message', settings);
+    ipcRenderer.send('export-message', settings);
     window2.close();
 });
 closeform.addEventListener("click", function(event){

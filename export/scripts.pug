@@ -1,9 +1,19 @@
+- console.log(datanames)
 script( src='leaflet.js' )
-each val in plugins
-  script( src= val[0]+'.js' )
-each val in datanames
-  if val == null
-  else
-    script( src=val[0]+'.js')
-
+- var listofdatasources = [];
+-
+  for (let i in datanames){
+  //checking the plugins | one per data
+    console.log(datanames[i][5]);
+    console.log(datanames[i][1][0]);
+    if ( !listofdatasources.includes(datanames[i][5]) && datanames[i][5]) {
+      listofdatasources.push(datanames[i][5]);
+    }
+    if ( datanames[i][1].length> 0 && !listofdatasources.includes(datanames[i][1][0])){
+      listofdatasources.push(datanames[i][1][0]);
+    }
+  }
+  console.log(listofdatasources);
+each val in listofdatasources
+  script( src= val +'.js')
 script( src="map.js")

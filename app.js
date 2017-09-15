@@ -13,21 +13,26 @@ let mainWindow
 // })
 
 const desktopPath = app.getPath('desktop');
+
 ipcMain.on('needDesktop', (event, arg) => {
+    console.log('desktop');
   mainWindow.webContents.send('desktopPath', desktopPath);
 })
-
-ipcMain.on('synchronous-message', (event, arg) => {
-  if(arg.id){
-    mainWindow.webContents.send('channel3', arg)//channel for layer edits
-  }else if(arg.ready){
-    mainWindow.webContents.send('channel4', arg)
-  }else if(arg.export){
-    mainWindow.webContents.send('channel5', arg)
-  }else{
-    mainWindow.webContents.send('channel2', arg)//channel for map edits
-  }
-
+ipcMain.on('export-message', (event, arg) => {
+    console.log('export');
+  mainWindow.webContents.send('exportI', arg);
+})
+ipcMain.on('layer-message', (event, arg) => {
+  console.log('layerchange');
+  mainWindow.webContents.send('layersetI', arg);
+})
+ipcMain.on('csv-message', (event, arg) => {
+    console.log('csv');
+  mainWindow.webContents.send('csvI', arg);
+})
+ipcMain.on('map-message', (event, arg) => {
+    console.log('mapsetchange');
+  mainWindow.webContents.send('mapsettingsI', arg);
 })
 ipcMain.on('message_workers', (event, arg) => {
     console.log('worker reporting', arg);

@@ -26,6 +26,7 @@ module.exports = {
   },
   writeScript: function(optionsinit) {
     try {
+      console.log(optionsinit);
       console.log('write scripts');
       //exportoptions.mapoptions.push(basemapProviderLayer1, mymap.options.maxBounds, minzoomtest, maxzoomtest , mymap.getZoom() , mymap.getCenter());
       //   var mapInit = 'var map = L.map("map").setView(['
@@ -55,15 +56,15 @@ module.exports = {
       //CHANGE TO WORK WITH TILE IN THE THING,
       var dataInit = '';
       if (optionsinit.mapoptions[1]) mapInit += `map.setMaxBounds(L.latLngBounds([[${optionsinit.mapoptions[1]._northEast.lat},${optionsinit.mapoptions[1]._northEast.lng} ],[${optionsinit.mapoptions[1]._southWest.lat} ,${optionsinit.mapoptions[1]._southWest.lng} ]]));`
-      for (i in optionsinit.datanames) {
+      for (let i in optionsinit.datanames) {
         if (typeof optionsinit.datanames[i] == 'object' && optionsinit.datanames[i][0] !== null) {
-          console.log('has second property')
-          console.log(optionsinit.datanames[i][0])
-          //list the cases for different types of plugins here for second property and maybe think about sending a third for options after everything works
-          switch (optionsinit.datanames[i][1]) {
-            case 'markercluster':
+          console.log('adding data')
+          if (optionsinit.datanames[i][1].length > 0){
+          switch (optionsinit.datanames[i][1][0]) {
+            case 'leaflet.markercluster':
+            console.log('markercluster');
               dataInit += `var markers${i} = L.markerClusterGroup();` +
-                `var ${optionsinit.datanames[i][0]}geojson = L.geoJson(${optionsinit.datanames[i][0]}` +
+                `var ${optionsinit.datanames[i][0]}geojson = L.geoJson(${optionsinit.datanames[i][5]}` +
                 `); markers${i}.addLayer(${optionsinit.datanames[i][0]}geojson);map.addLayer(markers${i});`;
               dataInit += (optionsinit.datanames[i][3] || optionsinit.datanames[i][4] ? `markers${i}` : '') +
                 (optionsinit.datanames[i][4] ? '.bindPopup(function (layer) { return ' + optionsinit.datanames[i][3] + '})' : '') //').bindPopup(function (layer) { return layer.feature.properties.description;})'
@@ -72,8 +73,12 @@ module.exports = {
                 +
                 (optionsinit.datanames[i][3] || optionsinit.datanames[i][4] ? `;` : '');
               break;
-            default:
-              dataInit += 'var ' + optionsinit.datanames[i][0] + 'geojson = L.geoJSON(' + optionsinit.datanames[i][0] +
+              default:
+              console.log('how did i get here?, check console and code');
+            }
+
+          }else{
+              dataInit += 'var ' + optionsinit.datanames[i][0] + 'geojson = L.geoJSON(' + optionsinit.datanames[i][5] +
                 (optionsinit.datanames[i][2] && typeof optionsinit.datanames[i][2] == 'object' ? ', {style:' + JSON.stringify(optionsinit.datanames[i][2]) + '})' : ')') //', {style: function (feature) {return {color: feature.properties.color};}}'
                 +
                 (optionsinit.datanames[i][3] ? '.bindPopup(function (layer) { return ' + optionsinit.datanames[i][3] + '})' : '') //').bindPopup(function (layer) { return layer.feature.properties.description;})'
@@ -82,8 +87,8 @@ module.exports = {
                 +
                 '.addTo(map);';
           }
-        }
       }
+    }
       let maptitleTest = '';
       if (optionsinit.maptitle) { //TAKEN FROM LEAFLET INFO EXAMPLE
         maptitleTest += `var info = L.control();
@@ -98,44 +103,59 @@ module.exports = {
           };
         info.addTo(map);`
       }
+
       //if works add formatting...
       var filecontent = prettier.format(mapInit + dataInit + maptitleTest);
 
       fs.writeFileSync(pathMain + '/map.js', filecontent);
 
       console.log('wrote the js file');
-      alert('Export is finished');
       console.log('Export is finished!');
     } catch (err) {
-      alert('There was an error writing the js');
       console.log(err);
     }
   },
-  createMapDir: function(options) {
-
-    fs.ensureDirSync(pathMain);
-    fs.copySync(__dirname + '/export/js', pathMain); //copies leaflet
-    for (let i in options.plugins) {
-      switch (options.plugins[i][0]) {
-        case 'leaflet.markercluster':
-          fs.copySync(__dirname + '/export/markercluster', pathMain); //copies markercluster into designated folder
-          break;
-        default:
-          console.log('default');
+  createMapDir: async function(optionsCheck) {
+    return new Promise(async function(resolve, reject) {
+      try{
+      console.log('writing map dir');
+      console.log(optionsCheck.datanames);
+      fs.ensureDirSync(pathMain);
+      fs.copySync(__dirname + '/export/js', pathMain); //copies leaflet
+      for (let i in optionsCheck.datanames) {
+        //Testing - for now 1 plugin per dataset
+        if(optionsCheck.datanames[i][1].length > 0){
+          switch (optionsCheck.datanames[i][1][0]) {
+          case 'leaflet.markercluster':
+            fs.copySync(__dirname + '/export/markercluster', pathMain); //copies markercluster into designated folder
+            console.log('dir markercluster');
+            break;
+          default:
+            console.log('finishing default map dir');
+        }
       }
-    }
+      }
+      resolve();
+      }catch(e){
+      console.log(e);
+      }
+    });
   },
   writeHTML: function(options) {
-    console.log('write html');
+    try{
+    console.log('write html', options);
     var compiledFunction = pug.compileFile(__dirname + '/export/test.pug');
     fs.writeFileSync(pathMain + '/map.html', compiledFunction(options)); //unformatted
     console.log('wrote html!');
+  }catch(e){
+    console.log(e);
+  }
   },
-  writeMap: function(options) {
-    //console.log(options)
+
+  writeMap: async function(options) {
+    console.log(options)
     pathMain = options.projectdest + '/' + options.projectname + moment().format("YYYY_M_D_h_mm_ss");
-    //console.log(pathMain);
-    this.createMapDir(options);
+    await this.createMapDir(options);
     this.writeHTML(options);
     this.writeScript(options);
     return pathMain;
