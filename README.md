@@ -55,7 +55,7 @@ Furthermore, maps can be exported to the web assets to distribute/host yourself:
 
 This export should be visible in your browser:
 
-<img src="https://user-images.githubusercontent.com/13355797/30506362-28140178-9a30-11e7-9009-4580f442f934.png" height="400">
+<img src="https://user-images.githubusercontent.com/13355797/30515012-69586d04-9ad5-11e7-88bf-24ac6a2c1135.png" height="400">
 
 For further instructions on the application check out the video: coming soon...
 
