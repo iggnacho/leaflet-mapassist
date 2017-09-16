@@ -53,7 +53,7 @@ Furthermore, maps can be exported to the web assets to distribute/host yourself:
 
 <img src="https://user-images.githubusercontent.com/13355797/30506360-27fc0730-9a30-11e7-9e1b-0823f7d03a6e.png" height="200">
 
-This export should be visible in your browser:
+Check out your exported Leaflet map in your browser:
 
 <img src="https://user-images.githubusercontent.com/13355797/30515012-69586d04-9ad5-11e7-88bf-24ac6a2c1135.png" height="400">
 
