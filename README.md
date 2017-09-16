@@ -1,5 +1,12 @@
 # leaflet-mapassist <img src="https://user-images.githubusercontent.com/13355797/30506491-2a176fe0-9a31-11e7-9b8d-6f90464c37b3.png" width="50">
 Design and Export Leaflet Maps
+
+## Use Case
+Leaflet Map Assist is a desktop application built on the Electron framework to allow for interactive designing of Leaflet maps and exporting the web map assets. The application includes markercluster plugin for markers, settiing map extent and zoom levels, changing basemaps, support for styling polylines and polygons, setting map titles, and setting tooltips and popups. Exported web maps are responsive and support mobile display.  
+
+*Supported formats of data include CSV, KML, and GeoJSON.*
+*Data must be projected to EPSG:3857. It is highly recommended to prune data to its geographic extent and required attributes.*
+
 ## Getting Started
 
 You can clone/download the project, edit, and build the application yourself with the given package commands in the `package.json`
