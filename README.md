@@ -52,7 +52,7 @@ Once application is running you should be presented with the following UI:
 
 <img src="https://user-images.githubusercontent.com/13355797/30506363-2813c5dc-9a30-11e7-9c11-9e1a528e94aa.png" height="400">
 
-Maps can be designed with the given map and layer options:
+Maps can be designed by adding data and editing map and layer options:
 
 <img src="https://user-images.githubusercontent.com/13355797/30506361-28134440-9a30-11e7-9268-8bb33fd4469c.png" height="400">
 
